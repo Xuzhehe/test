@@ -1,9 +1,45 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #define TRUE 1
 #define FALSE 0
 
-void AddStu();
+typedef struct student
+{
+    char ID[10];
+    char Name[10];
+    int score[5]
+}STUDENT;
+STUDENT stu[1000000];
+int n=0;
+void AddStu()
+{
+    while(TRUE)
+    {
+    printf("             ==================添加学生信息=================\n");
+    printf("请输入学号：");
+    scanf("%s",stu[n].ID);
+    printf("请输入姓名：");
+    scanf("%s",stu[n].Name);
+    printf("请输入高数成绩：");
+    scanf("%d",&stu[n].score[0]);
+    printf("请输入英语成绩：");
+    scanf("%d",&stu[n].score[1]);
+    printf("请输入医化成绩：");
+    scanf("%d",&stu[n].score[2]);
+    printf("请输入Linux成绩：");
+    scanf("%d",&stu[n].score[3]);
+    printf("请输入c语言成绩：");
+    scanf("%d",&stu[n].score[4]);
+    n++;
+    printf("任意键继续，n退出:");
+    getchar();
+    if(getchar()=='n')
+		{
+			break;
+		}
+    }
+}
 void ScanStu();
 void QueryStu();
 void DeleteStu();
@@ -32,6 +68,7 @@ int StartMenu()//主菜单
 
 int main()
 {
+    int n;
     int menu;
     int doing=TRUE;
     while(doing)//判断用户选择的功能，进行跳转
@@ -39,7 +76,7 @@ int main()
         menu=StartMenu();
         switch(menu)
         {
-            case 1:AddStu; break;//跳转至“添加学生信息”
+            case 1:AddStu();system("pause");system("cls"); break;//跳转至“添加学生信息”
             case 2:ScanStu; break;//跳转至“浏览学生信息”
             case 3:QueryStu; break;//跳转至“查询学生信息”
             case 4:DeleteStu; break;//跳转至“删除学生信息”
