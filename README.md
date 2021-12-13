@@ -131,8 +131,8 @@ int main()
         switch(menu)
         {
             case 1:AddStu();system("pause");system("cls"); break;//跳转至“添加学生信息”
-            case 2:ScanStu(); break;//跳转至“浏览学生信息”
-            case 3:QueryStu(); break;//跳转至“查询学生信息”
+            case 2:ScanStu(); break;system("pause");system("cls");//跳转至“浏览学生信息”
+            case 3:QueryStu(); break;system("pause");system("cls");//跳转至“查询学生信息”
             case 4:DeleteStu; break;//跳转至“删除学生信息”
             case 5:SortStu; break;//跳转至“按总分排序”
             case 6:doing=FALSE;printf("退出系统"); break;//退出系统
