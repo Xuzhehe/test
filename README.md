@@ -40,8 +40,62 @@ void AddStu()
 		}
     }
 }
-void ScanStu();
-void QueryStu();
+void ScanStu()
+{
+    int c ;
+    for(c=0;c<n;c++)
+    {
+        printf("学号：%s\t 姓名：%s\t 高数成绩：%d\t 英语成绩：%d\t 医化成绩：%d\t Linux成绩：%d\t c语言成绩%d\n",stu[c].ID,stu[c].Name,stu[c].score[0],stu[c].score[1],stu[c].score[2],stu[c].score[3],stu[c].score[4]);
+
+    }
+}
+void QueryStu()
+{
+	int i,tp;
+	char num1[10];
+	char a[10];
+	float b;
+	printf("请输入要查找的方式\n");
+	printf("1：按学号查找\t2：按姓名查找\t");
+	scanf("%d",&tp);
+	switch(tp)
+	{
+		case 1:
+		printf("请输入该学生学号\n");
+		scanf("%s",&num1);
+		for(i=0;i<n;i++)
+		{
+
+			if(strcmp(stu[i].ID,num1)==0)
+			{
+				printf("该学生的信息如下：\n");
+				printf("学号为：%s\t\n",stu[i].ID);
+				printf("姓名为：%s\t\n",stu[i].Name);
+
+			}
+		}
+
+		break;
+		case 2:
+		printf("请输入该学生姓名\n");
+		scanf("%s",a);
+		for(i=0;i<n;i++)
+		{
+			if(strcmp(stu[i].Name,a)==0)
+			{
+				printf("该学生的信息如下：\n");
+				printf("学号为：%s\t\n",stu[i].ID);
+				printf("姓名为：%s\t\n",stu[i].Name);
+			}
+
+		}
+		break;
+
+	}
+}
+
+
+
 void DeleteStu();
 void SortStu();
 int StartMenu()//主菜单
@@ -77,8 +131,8 @@ int main()
         switch(menu)
         {
             case 1:AddStu();system("pause");system("cls"); break;//跳转至“添加学生信息”
-            case 2:ScanStu; break;//跳转至“浏览学生信息”
-            case 3:QueryStu; break;//跳转至“查询学生信息”
+            case 2:ScanStu(); break;//跳转至“浏览学生信息”
+            case 3:QueryStu(); break;//跳转至“查询学生信息”
             case 4:DeleteStu; break;//跳转至“删除学生信息”
             case 5:SortStu; break;//跳转至“按总分排序”
             case 6:doing=FALSE;printf("退出系统"); break;//退出系统
