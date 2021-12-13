@@ -71,7 +71,7 @@ void QueryStu()
 				printf("该学生的信息如下：\n");
 				printf("学号为：%s\t\n",stu[i].ID);
 				printf("姓名为：%s\t\n",stu[i].Name);
-
+                              printf("高数成绩：%d\t 英语成绩：%d\t 医化成绩：%d\t Linux成绩：%d\t c语言成   绩%d\n",stu[i].score[0],stu[i].score[1],stu[i].score[2],stu[i].score[3],stu[i].score[4]);
 			}
 		}
 
@@ -86,6 +86,7 @@ void QueryStu()
 				printf("该学生的信息如下：\n");
 				printf("学号为：%s\t\n",stu[i].ID);
 				printf("姓名为：%s\t\n",stu[i].Name);
+			        printf("高数成绩：%d\t 英语成绩：%d\t 医化成绩：%d\t Linux成绩：%d\t c语言成    绩%d\n",stu[i].score[0],stu[i].score[1],stu[i].score[2],stu[i].score[3],stu[i].score[4]);
 			}
 
 		}
@@ -131,8 +132,8 @@ int main()
         switch(menu)
         {
             case 1:AddStu();system("pause");system("cls"); break;//跳转至“添加学生信息”
-            case 2:ScanStu(); break;system("pause");system("cls");//跳转至“浏览学生信息”
-            case 3:QueryStu(); break;system("pause");system("cls");//跳转至“查询学生信息”
+            case 2:ScanStu(); system("pause");system("cls");break;//跳转至“浏览学生信息”
+            case 3:QueryStu(); system("pause");system("cls");break;//跳转至“查询学生信息”
             case 4:DeleteStu; break;//跳转至“删除学生信息”
             case 5:SortStu; break;//跳转至“按总分排序”
             case 6:doing=FALSE;printf("退出系统"); break;//退出系统
