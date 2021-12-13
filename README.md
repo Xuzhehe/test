@@ -95,9 +95,46 @@ void QueryStu()
 	}
 }
 
-
-
-void DeleteStu();
+void DeleteStu()
+{
+	 system("cls");
+     int i;
+     printf("学生名单：\n");
+     printf("*************************************************\n");
+     for(i=0;i<n;i++)
+	 {
+	 	printf("%s\t",stu[i].Name);
+	 }
+	 printf("\n");
+	 printf("*************************************************\n");
+     while(1)
+     {
+         char Name[10];
+         int a;
+      printf("请输入删除学生姓名：\n");
+      printf("请输入学生学号：\n");
+         scanf("%s%d",&stu[i].Name,&stu[i].ID);
+         {
+              printf("你要删除的学生信息为:\n");
+              printf("是否删除（确认请按y):");
+              getchar();
+              if(getchar()=='y')
+              {
+                   for(i=a;i<n-1;i++)
+                   {
+                       stu[i]=stu[i+1];
+                   }
+                   n--;
+              }
+         }
+         getchar();
+         printf("任意键继续，n退出：");
+         if (getchar()=='n')
+         {
+              break;
+         }
+     }
+}
 void SortStu();
 int StartMenu()//主菜单
 {
@@ -134,7 +171,7 @@ int main()
             case 1:AddStu();system("pause");system("cls"); break;//跳转至“添加学生信息”
             case 2:ScanStu(); system("pause");system("cls");break;//跳转至“浏览学生信息”
             case 3:QueryStu(); system("pause");system("cls");break;//跳转至“查询学生信息”
-            case 4:DeleteStu; break;//跳转至“删除学生信息”
+            case 4:DeleteStu(); break;//跳转至“删除学生信息”
             case 5:SortStu; break;//跳转至“按总分排序”
             case 6:doing=FALSE;printf("退出系统"); break;//退出系统
             default:printf("输入错误，请重新输入！"); break;
