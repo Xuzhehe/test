@@ -120,34 +120,44 @@ void DeleteStu()
 	 }
 	 printf("\n");
 	 printf("*************************************************\n");
-     while(1)
+     while(TRUE)
      {
-         char Name[10];
-         int a;
-      printf("请输入删除学生姓名：\n");
-      printf("请输入学生学号：\n");
-         scanf("%s%d",&stu[i].Name,&stu[i].ID);
-         {
-              printf("你要删除的学生信息为:\n");
-              printf("是否删除（确认请按y):");
-              getchar();
-              if(getchar()=='y')
-              {
-                   for(i=a;i<n-1;i++)
-                   {
+         char id[10];
+         int a,i;
+         printf("请输入学生学号：");
+         scanf("%s",id);
+         for(i=0;i<n;i++)
+		{
+
+			if(strcmp(stu[i].ID,id)==0)
+			{
+			    a=i;
+				printf("该学生的信息如下：\n");
+				printf("学号为：%s\t\n",stu[i].ID);
+				printf("姓名为：%s\t\n",stu[i].Name);
+                printf("高数成绩：%d\t 英语成绩：%d\t 医化成绩：%d\t Linux成绩：%d\t c语言成绩%d\n",stu[i].score[0],stu[i].score[1],stu[i].score[2],stu[i].score[3],stu[i].score[4]);
+                printf("是否删除（确认请按y):");
+                getchar();
+                if(getchar()=='y')
+                {
+                    for(i=a;i<n-1;i++)
+                    {
                        stu[i]=stu[i+1];
-                   }
-                   n--;
-              }
-         }
-         getchar();
-         printf("任意键继续，n退出：");
-         if (getchar()=='n')
-         {
-              break;
-         }
+                    }
+                    n--;
+                printf("删除成功！\n");
+                }
+			}
+		}
+		getchar();
+		printf("任意键继续，n退出:");
+        if(getchar()=='n')
+		{
+			break;
+		}
      }
 }
+
 void SortStu();
 int StartMenu()//主菜单
 {
