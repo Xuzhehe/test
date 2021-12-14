@@ -14,6 +14,7 @@ STUDENT stu[1000000];
 int n=0;
 void AddStu()
 {
+    system("cls");
     while(TRUE)
     {
     printf("             ==================添加学生信息=================\n");
@@ -42,7 +43,10 @@ void AddStu()
 }
 void ScanStu()
 {
+    system("cls");
     int c ;
+    printf("                            ==================浏*览*学*生*信*息=================\n");
+    printf("-------------------------------------------------------------------------------------------------------------\n");
     for(c=0;c<n;c++)
     {
         printf("学号：%s\t 姓名：%s\t 高数成绩：%d\t 英语成绩：%d\t 医化成绩：%d\t Linux成绩：%d\t c语言成绩%d\n",stu[c].ID,stu[c].Name,stu[c].score[0],stu[c].score[1],stu[c].score[2],stu[c].score[3],stu[c].score[4]);
@@ -51,18 +55,20 @@ void ScanStu()
 }
 void QueryStu()
 {
+        system("cls");
 	int i,tp;
 	char num1[10];
 	char a[10];
-	float b;
-	printf("请输入要查找的方式\n");
-	printf("1：按学号查找\t2：按姓名查找\t");
-	scanf("%d",&tp);
-	switch(tp)
+	printf("1：按学号查找\t2：按姓名查找\t\n");
+	while(TRUE)
 	{
+	    printf("请输入要查找的方式：");
+	    scanf("%d",&tp);
+	    switch(tp)
+	    {
 		case 1:
 		printf("请输入该学生学号\n");
-		scanf("%s",&num1);
+		scanf("%s",num1);
 		for(i=0;i<n;i++)
 		{
 
@@ -86,12 +92,19 @@ void QueryStu()
 				printf("该学生的信息如下：\n");
 				printf("学号为：%s\t\n",stu[i].ID);
 				printf("姓名为：%s\t\n",stu[i].Name);
-			        printf("高数成绩：%d\t 英语成绩：%d\t 医化成绩：%d\t Linux成绩：%d\t c语言成    绩%d\n",stu[i].score[0],stu[i].score[1],stu[i].score[2],stu[i].score[3],stu[i].score[4]);
+			        printf("高数成绩：%d\t 英语成绩：%d\t 医化成绩：%d\t Linux成绩：%d\t c语言成   绩%d\n",stu[i].score[0],stu[i].score[1],stu[i].score[2],stu[i].score[3],stu[i].score[4]);
 			}
 
 		}
 		break;
-
+		default:printf("输入错误，请重新输入！\n");break;
+	    }
+	printf("任意键继续，n退出:");
+        getchar();
+        if(getchar()=='n')
+		{
+			break;
+		}
 	}
 }
 
@@ -160,7 +173,6 @@ int StartMenu()//主菜单
 
 int main()
 {
-    int n;
     int menu;
     int doing=TRUE;
     while(doing)//判断用户选择的功能，进行跳转
