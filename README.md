@@ -116,7 +116,7 @@ void DeleteStu()
      printf("*************************************************\n");
      for(i=0;i<n;i++)
 	 {
-	 	printf("%s\t",stu[i].Name);
+	 	printf("姓名：%s\t学号：%s\t\n",stu[i].Name,stu[i].ID);
 	 }
 	 printf("\n");
 	 printf("*************************************************\n");
