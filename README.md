@@ -193,7 +193,7 @@ int main()
             case 1:AddStu();system("pause");system("cls"); break;//跳转至“添加学生信息”
             case 2:ScanStu(); system("pause");system("cls");break;//跳转至“浏览学生信息”
             case 3:QueryStu(); system("pause");system("cls");break;//跳转至“查询学生信息”
-            case 4:DeleteStu(); break;//跳转至“删除学生信息”
+            case 4:DeleteStu(); system("pause");system("cls");break;//跳转至“删除学生信息”
             case 5:SortStu; break;//跳转至“按总分排序”
             case 6:doing=FALSE;printf("退出系统"); break;//退出系统
             default:printf("输入错误，请重新输入！"); break;
