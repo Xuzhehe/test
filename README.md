@@ -8,7 +8,8 @@ typedef struct student
 {
     char ID[10];
     char Name[10];
-    int score[5]
+    int score[5];
+    int sum;
 }STUDENT;
 STUDENT stu[1000000];
 int n=0;
@@ -158,7 +159,39 @@ void DeleteStu()
      }
 }
 
-void SortStu();
+void SortStu()
+{
+    system("cls");
+    int i,t,j,k;
+    char m[10],a[10];
+    for(i=0;i<n;i++)
+    {
+        stu[i].sum=stu[i].score[0]+stu[i].score[1]+stu[i].score[2]+stu[i].score[3]+stu[i].score[4];
+    }
+    for(k=0;k<n;k++)
+   {
+       for (i=0;i<n-1;i++)
+    {
+        if(stu[i].sum<stu[i+1].sum)
+        {
+            t=stu[i].sum;
+            stu[i].sum=stu[i+1].sum;
+            stu[i+1].sum=t;
+            strcpy(m,stu[i].ID);
+            strcpy(stu[i].ID,stu[i+1].ID);
+            strcpy(stu[i+1].ID,m);
+            strcpy(a,stu[i].Name);
+            strcpy(stu[i].Name,stu[i+1].Name);
+            strcpy(stu[i+1].Name,a);
+        }
+    }
+    }
+    for(j=0;j<n;j++)
+    {
+        printf("第%d名,学号为：%s\t，姓名为：%s\t，总分为%d\n",j+1,stu[j].ID,stu[j].Name,stu[j].sum);
+    }
+}
+
 int StartMenu()//主菜单
 {
     int menu;
@@ -194,7 +227,7 @@ int main()
             case 2:ScanStu(); system("pause");system("cls");break;//跳转至“浏览学生信息”
             case 3:QueryStu(); system("pause");system("cls");break;//跳转至“查询学生信息”
             case 4:DeleteStu(); system("pause");system("cls");break;//跳转至“删除学生信息”
-            case 5:SortStu; break;//跳转至“按总分排序”
+            case 5:SortStu(); system("pause");system("cls");break;//跳转至“按总分排序”
             case 6:doing=FALSE;printf("退出系统"); break;//退出系统
             default:printf("输入错误，请重新输入！"); break;
         }
